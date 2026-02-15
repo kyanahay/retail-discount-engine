@@ -127,7 +127,7 @@ console.log(
 
 
 // Step 6: Log each key/value pair for a single product after discounts are applied.
-console.log("=== for...in on a single product (after discounts + checkout) ===");
+console.log("=== Product after discounts applied===");
 const sampleProduct = products[0]; // first product
 for (const key in sampleProduct) {
   console.log(`${key}:`, sampleProduct[key]);
@@ -137,7 +137,7 @@ for (const key in sampleProduct) {
 
 
 //Step 7: Log all product info after inventory is updated.
-console.log("=== Object.entries() + destructuring for ALL products (final state) ===");
+console.log("=== Final Inventory ===");
 for (const product of products) {
   console.log(`--- ${product.name} ---`);
   for (const [key, value] of Object.entries(product)) {
