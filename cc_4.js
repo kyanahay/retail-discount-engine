@@ -32,12 +32,15 @@ for (const product of products) {
   }
 
   product.categoryDiscountRate = discountRate;
-  product.discountedPrice = round2(product.price * (1 - discountRate));
+  product.discountedPrice = (product.price * (1 - discountRate));
 }
 
 console.log("=== Products after category discounts ===");
-console.log(products);
-
+for (const product of products) {
+  console.log(
+    `${product.name} | Discounted Price: $${product.discountedPrice.toFixed(2)}`
+  );
+}
 
 
 // Step 4: Create a variable customerType and apply an additional discount
