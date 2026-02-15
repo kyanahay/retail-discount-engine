@@ -117,11 +117,11 @@ for (let i = 0; i < 3; i++) {
   }
 
   // Apply extra discount to the subtotal
-  const totalAfterExtraDiscount = round2(subtotal * (1 - extraDiscountRate));
+  const totalAfterExtraDiscount = subtotal * (1 - extraDiscountRate);
 
-  console.log(
-    `Customer ${customerNumber} subtotal: $${round2(subtotal)} | total after extra discount: $${totalAfterExtraDiscount}`
-  );
+console.log(
+  `Customer ${customerNumber} subtotal: $${subtotal.toFixed(2)} | total after extra discount: $${totalAfterExtraDiscount.toFixed(2)}`
+);
 }
 
 
