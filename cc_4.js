@@ -44,7 +44,7 @@ for (const product of products) {
 
 
 // Step 4: Create a variable customerType and apply an additional discount
-let customerType = "regular"; // change to "student" or "senior" to test
+let customerType = "regular";
 
 let extraDiscountRate = 0;
 if (customerType === "student") {
@@ -55,7 +55,7 @@ if (customerType === "student") {
   extraDiscountRate = 0;
 }
 
-console.log(`Customer type: ${customerType} | Extra discount rate: ${extraDiscountRate * 100}%`);
+console.log(`Customer type: ${customerType} | Extra discount rate: ${(extraDiscountRate * 100).toFixed(0)}%`);
 
 
 
