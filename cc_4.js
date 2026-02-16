@@ -79,14 +79,14 @@ const carts = [
   ]
 ];
 
-// Helper: find product by name
+// Find product by name
 function findProductByName(name) {
   return products.find((p) => p.name === name);
 }
 
 console.log("=== Checkout Simulation ===");
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < carts.length; i++) {
   const customerNumber = i + 1;
   const cart = carts[i];
 
@@ -116,12 +116,12 @@ for (let i = 0; i < 3; i++) {
     product.inventory -= item.qty;
   }
 
-  // Apply extra discount to the subtotal
-  const totalAfterExtraDiscount = subtotal * (1 - extraDiscountRate);
+    // Apply extra discount to the subtotal
+    const totalAfterExtraDiscount = subtotal * (1 - extraDiscountRate);
 
-console.log(
-  `Customer ${customerNumber} subtotal: $${subtotal.toFixed(2)} | total after extra discount: $${totalAfterExtraDiscount.toFixed(2)}`
-);
+     console.log(
+         `Customer ${customerNumber} subtotal: $${subtotal.toFixed(2)} | total after extra discount: $${totalAfterExtraDiscount.toFixed(2)}`
+    );
 }
 
 
@@ -130,7 +130,12 @@ console.log(
 console.log("=== Product after discounts applied===");
 const sampleProduct = products[0]; // first product
 for (const key in sampleProduct) {
-  console.log(`${key}:`, sampleProduct[key]);
+  const value =
+    key === "discountedPrice"
+      ? sampleProduct[key].toFixed(2)
+      : sampleProduct[key];
+
+  console.log(`${key}:`, value);
 }
 
 
@@ -140,7 +145,9 @@ for (const key in sampleProduct) {
 console.log("=== Final Inventory ===");
 for (const product of products) {
   console.log(`--- ${product.name} ---`);
-  for (const [key, value] of Object.entries(product)) {
-    console.log(`${key}:`, value);
+    for (const { key, value } of Object.entries(product)) {
+    const displayValue =
+      key === "discountedPrice" ? value.toFixed(2) : value;
+    console.log(`${key}:`, displayValue);
   }
 }
