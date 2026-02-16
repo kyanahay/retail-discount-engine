@@ -32,7 +32,7 @@ for (const product of products) {
   }
 
   product.categoryDiscountRate = discountRate;
-  product.discountedPrice = (product.price * (1 - discountRate));
+  product.discountedPrice = product.price * (1 - discountRate);
 }
 
 console.log("=== Products after category discounts ===");
@@ -51,9 +51,7 @@ if (customerType === "student") {
   extraDiscountRate = 0.05;
 } else if (customerType === "senior") {
   extraDiscountRate = 0.07;
-} else {
-  extraDiscountRate = 0;
-}
+} 
 
 console.log(`Customer type: ${customerType} | Extra discount rate: ${(extraDiscountRate * 100).toFixed(0)}%`);
 
@@ -118,8 +116,7 @@ for (let i = 0; i < carts.length; i++) {
 
     // Apply extra discount to the subtotal
     const totalAfterExtraDiscount = subtotal * (1 - extraDiscountRate);
-
-     console.log(
+    console.log(
          `Customer ${customerNumber} subtotal: $${subtotal.toFixed(2)} | total after extra discount: $${totalAfterExtraDiscount.toFixed(2)}`
     );
 }
@@ -127,7 +124,7 @@ for (let i = 0; i < carts.length; i++) {
 
 
 // Step 6: Log each key/value pair for a single product after discounts are applied.
-console.log("=== Product after discounts applied===");
+console.log("=== Product after discounts applied ===");
 const sampleProduct = products[0]; // first product
 for (const key in sampleProduct) {
   const value =
@@ -145,7 +142,7 @@ for (const key in sampleProduct) {
 console.log("=== Final Inventory ===");
 for (const product of products) {
   console.log(`--- ${product.name} ---`);
-    for (const [key, value] of Object.entries(product)) {
+  for (const [key, value] of Object.entries(product)) {
     const displayValue = key === "discountedPrice" ? value.toFixed(2) : value;
     console.log(`${key}:`, displayValue);
   }
