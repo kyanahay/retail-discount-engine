@@ -145,9 +145,8 @@ for (const key in sampleProduct) {
 console.log("=== Final Inventory ===");
 for (const product of products) {
   console.log(`--- ${product.name} ---`);
-    for (const { key, value } of Object.entries(product)) {
-    const displayValue =
-      key === "discountedPrice" ? value.toFixed(2) : value;
+    for (const [key, value] of Object.entries(product)) {
+    const displayValue = key === "discountedPrice" ? value.toFixed(2) : value;
     console.log(`${key}:`, displayValue);
   }
 }
